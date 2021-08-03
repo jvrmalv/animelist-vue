@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <NavBar></NavBar>
-    <ListContainer></ListContainer>
+    <anime-list></anime-list>
   </div>
 </template>
 
@@ -10,17 +9,20 @@ html,
 body {
   padding: 0;
   margin: 0;
+  max-width: 100%;
+  min-width: 100%;
+}
+html {
+  overflow-x: hidden;
 }
 </style>
 
 <script>
-import ListContainer from "./components/ListContainer.vue";
-import NavBar from "./components/NavBar.vue";
+import AnimeList from "./components/AnimeList.vue";
 export default {
   name: "App",
   components: {
-    ListContainer,
-    NavBar,
+    AnimeList,
   },
 };
 </script>

@@ -13,25 +13,41 @@
       <div>
         <div><a href="">Plan to Watch</a></div>
       </div>
+      <div>
+        <vue-bootstrap-typeahead
+          @hit="$emit('item-click', $event)"
+          v-model="query"
+          :data="typeAheadList"
+          :serializer="animeSerializer"
+        ></vue-bootstrap-typeahead>
+      </div>
     </div>
   </nav>
 </template>
 
 <script>
+import VueBootstrapTypeahead from "vue-bootstrap-typeahead";
+
 export default {
   name: "NavBar",
-  components: {},
+  components: { VueBootstrapTypeahead },
+  data() {
+    return {
+      query: "",
+    };
+  },
+  props: {
+    typeAheadList: Array,
+  },
+  methods: {
+    animeSerializer: (anime) => anime.title,
+    // itemClickEmit: (anime) => this.$emit("item-click", anime),
+  },
 };
 </script>
 
 <style scoped>
-nav {
-  display: flex;
-  flex-direction: row;
-  background: #2b2d42;
-}
 .sub-nav-bar {
-  flex: 50%;
   display: flex;
   flex-direction: row;
   background: #2b2d42;
@@ -40,16 +56,24 @@ nav {
   align-items: center;
   justify-content: center;
   width: 100;
+  height: 2em;
 }
 .sub-nav-bar > div {
-  padding-left: 1em;
+  padding-left: 20em;
 }
+
+a {
+  color: bisque;
+  text-decoration: none;
+}
+
 img {
   height: 2em;
   padding-right: 4em;
   justify-content: none;
 }
+
 #logo {
-  flex: 1;
+  position: absolute;
 }
 </style>
