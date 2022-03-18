@@ -2,7 +2,7 @@
   This project uses the [following JSON database](https://github.com/manami-project/anime-offline-database) for the anime data.
 
 
-  __WARNING__: The database I'm using to mock this application may contain NSFW anime. I am not responsible for any sexual or contentious content that it contains.
+  __WARNING__: The database I'm using to mock this application may contain NSFW anime. I am not responsible for  content that it contains.
 ## Project setup
 ```
 npm install
